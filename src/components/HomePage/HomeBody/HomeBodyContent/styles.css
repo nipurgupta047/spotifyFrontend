@@ -1,0 +1,28 @@
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(18,18,18); 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #555; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #888; 
+  }
+
+#homeBodyContent{
+    color:white;
+    background-image: linear-gradient(to bottom,rgb(34,34,34) , rgb(18,18,18));
+    /* background-color: rgb(18,18,18); */
+    height: 100%;
+    border-radius:8px;
+    overflow-y: scroll;
+    position: relative;
+}

@@ -1,0 +1,107 @@
+
+#navbar{
+    height: 65px;
+    color:white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: red; */
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 72%;
+    position: fixed;
+    z-index: 1;
+    background-color: rgb(18,18,18);
+}
+
+@media screen and (max-width:550px) and (min-width:399px){
+    #navbar{
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        height: 130px;
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (max-width:400px){
+    #navbar{
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        height: 195px;
+        justify-content: space-evenly;
+    }
+}
+
+.arrowButtonsDiv{
+    display: flex;
+}
+
+.loginSignupDiv{
+    display: flex;
+}
+
+@media screen and (max-width:400px){
+    .loginSignupDiv{
+        flex-direction: column;
+        align-items: flex-start;
+        height: 130px;
+        justify-content: space-evenly;
+    }
+}
+
+.arrowButtons{
+    color: rgb(213, 213, 213);
+    font-size: 16px;
+    background-color: black;
+    height: 33px;
+    width:33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    border-radius: 100px;
+    border: none;
+}
+
+.arrowButtons:hover{   
+    color:white;
+}
+
+.login{
+    color: black;
+    background-color: white;
+    font-size: 16px;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    transition: color linear 100ms;
+    transition: transform linear 100ms;
+}
+
+.signup{
+    background-color: transparent;
+    color:rgb(204, 204, 204);
+    border:0px;
+    margin-right: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: color linear 100ms;
+    transition: transform linear 100ms;
+}
+
+.signup:hover{
+    color:white;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.login:hover{
+    background-color:rgb(231, 230, 230);
+    transform: scale(1.1);
+    cursor: pointer;
+}

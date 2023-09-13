@@ -1,0 +1,13 @@
+
+#homeBody{
+    /* flex-grow: 1; */
+    flex-shrink: 1;
+    width: 72%;
+    /* float: right; */
+    align-self: flex-end;
+    height: 88vh;
+    padding: 5px 8px 0px 0px;
+    position: fixed;
+    right: 0;
+    /* background-color: red; */
+}

@@ -1,0 +1,12 @@
+
+#navigation{
+    flex-shrink: 1;
+    width: 28%;
+    /* min-width: 330px; */
+    height: 88vh;
+    padding:5px 7px 0px 8px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left:0;
+}

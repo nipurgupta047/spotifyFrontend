@@ -1,0 +1,53 @@
+
+
+.SpotifyPlaylistBodyHeadingShowAll{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.SpotifyPlaylistBodyShowAll:hover, .SpotifyPlaylistBodyHeading:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.SpotifyPlaylistBodyHeading{
+    font-size:x-large;
+    font-weight: bold;
+}
+
+.SpotifyPlaylistBodyShowAll{
+    color:rgb(167,167,167);
+    font-weight: bold;
+}
+
+.SpotifyPlaylistBodyCardsArray{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    column-gap: 25px;
+    margin-bottom: 30px;
+}
+
+@media screen and (min-width: 1200px) {
+    .SpotifyPlaylistBodyCardsArray{
+        grid-template-columns: auto auto auto auto auto;
+    }
+}
+
+@media screen and (max-width: 1199px) and (min-width:930px){
+    .SpotifyPlaylistBodyCardsArray{
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media screen and (max-width: 929px) and (min-width:590px){
+    .SpotifyPlaylistBodyCardsArray{
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 589px){
+    .SpotifyPlaylistBodyCardsArray{
+        grid-template-columns: auto;
+    }
+}

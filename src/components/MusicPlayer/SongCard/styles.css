@@ -1,0 +1,43 @@
+.songCard{
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.songCardLabel{
+    margin-right: 20px;
+}
+
+#songCardImage{
+    margin-left: 10px;
+    height:55px;
+    width:55px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.songCardSongName{
+    font-weight: bold;
+    font-size: 13px;
+}
+.songCardSongName:hover{
+    text-decoration: underline  ;
+}
+
+.songCardArtistName{
+    /* font-weight: bold; */
+    font-size: 12px;
+    color:rgb(167,167,167);
+}
+.songCardArtistName:hover{
+    color:white;
+    text-decoration: underline;
+}
+
+.iconLike{
+    color:rgb(167,167,167);
+}
+
+.iconLike:hover{
+    color:white;
+}

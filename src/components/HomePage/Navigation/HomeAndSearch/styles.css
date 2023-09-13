@@ -1,0 +1,47 @@
+#homeAndSearch{
+    background-color: rgb(18,18,18);
+    padding: 18px 0px 18px 22px;
+    border-radius: 8px;
+}
+
+.iconAndLabel{
+    display: flex;
+    align-items: center;
+}
+
+#homeAndSearch > *:not(:last-child) {
+    margin-bottom:14px;
+}
+
+.iconAndLabelHome{
+    color:white;
+}
+
+.iconHome{
+    font-size:26px;
+    margin-right: 18px;
+}
+
+.iconSearch{
+    font-size:26px;
+    margin-right: 18px;
+}
+
+.labelHome{
+    font-size:16px;
+    font-weight: bold;
+}
+
+.iconAndLabelSearch{
+    color:rgb(167,167,167);
+    transition: color linear 400ms;
+}
+
+.iconAndLabelSearch:hover{
+    color:rgb(255, 255, 255);
+}
+
+.labelSearch{
+    font-size:16px;
+    font-weight: bold;
+}

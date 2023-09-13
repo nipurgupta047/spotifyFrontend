@@ -1,0 +1,5 @@
+#homePage{
+    display: flex;
+    height: 88vh;
+    box-sizing: border-box;
+}
