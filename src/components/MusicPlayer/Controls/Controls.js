@@ -1,66 +1,93 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './styles.css'
 import { FaPlayCircle, FaPauseCircle, FaStepBackward, FaStepForward } from 'react-icons/fa';
 
 let currentTimeInterval
 
-export default function Controls() {
+export default function Controls({playingSong, setPlayingSong}) {
     
     const [play, setPlay] = useState(false)
-
+    const [dur, setDur] = useState(0)
     const [currentTime, setCurrentTime] = useState(0)
     const [duration, setDuration] = useState(0)
 
+    useEffect(()=>{
+
+        clearInterval(currentTimeInterval)
+        setCurrentTime(0)
+        const musicPlaying = document.getElementById('currentMusic')
+        musicPlaying.onloadeddata = function(){
+            setDur(musicPlaying.duration)
+        }
+        console.log('oppp',document.getElementById('currentMusic'), 'durrr', dur);
+        let y = ''
+        if(Math.floor(dur-Math.floor(dur/60)*60)<10)
+            y='0'
+        setDuration(Math.floor(dur/60) + ':' + y + Math.floor(dur-Math.floor(dur/60)*60));
+        document.getElementById('progressBarTime').value = 0
+        
+        setPlay(false)
+
+    },[playingSong]);
+
     function getCurrentTime(){
         const time = document.getElementById('currentMusic').currentTime
-        const dur = document.getElementById('currentMusic').duration
+        setDur(document.getElementById('currentMusic').duration)
         let x=''
         if(Math.floor(time-Math.floor(time/60)*60)<10)
             x='0'
+        let y=''
+        if(Math.floor(dur-Math.floor(dur/60)*60)<10)
+            y='0'
         setCurrentTime(Math.floor(time/60) + ':' + x + Math.floor(time-Math.floor(time/60)*60))
-        setDuration(Math.floor(dur/60) + ':' + Math.floor(dur-Math.floor(dur/60)*60));
+        setDuration(Math.floor(dur/60) + ':' + y + Math.floor(dur-Math.floor(dur/60)*60));
         if(time === dur){
             setPlay(false)
             clearInterval(currentTimeInterval)
         }
         const songProgress = time*100/dur;
-        console.log(songProgress)
         document.getElementById('progressBarTime').value = songProgress
     }
 
     function progressChanged(){
 
         const songProgress = document.getElementById('progressBarTime').value;
-        console.log('songProgress   ', songProgress)
-        const dur = document.getElementById('currentMusic').duration
+        setDur(document.getElementById('currentMusic').duration)
         const time = dur*songProgress/100
         let x=''
         if(Math.floor(time-Math.floor(time/60)*60)<10)
             x='0'
+        let y=''
+        if(Math.floor(dur-Math.floor(dur/60)*60)<10)
+            y='0'
         setCurrentTime(Math.floor(time/60) + ':' + x + Math.floor(time-Math.floor(time/60)*60))
-        setDuration(Math.floor(dur/60) + ':' + Math.floor(dur-Math.floor(dur/60)*60));
+        setDuration(Math.floor(dur/60) + ':' + y + Math.floor(dur-Math.floor(dur/60)*60));
         document.getElementById('currentMusic').currentTime = time
     }
 
     function playPause(){
         if(play){
             clearInterval(currentTimeInterval)
-            setPlay(false)
             const musicPlaying = document.getElementById('currentMusic')
-            musicPlaying.pause()
+            if(play===true && !musicPlaying.paused){
+                setPlay(false)
+                musicPlaying.pause()
+            }
         }
         else{
             currentTimeInterval = setInterval(getCurrentTime,100)
-            setPlay(true)
             const musicPlaying = document.getElementById('currentMusic')
-            musicPlaying.play()
+            if(play===false && musicPlaying.paused){
+                setPlay(true)
+                musicPlaying.play()
+            }
         }
     }
     
   return (
     <div id='controls'>
       <div id='controlPanel'>
-        <audio controls src='/music/1.mp3' type="audio/mpeg" id='currentMusic'>pp</audio>
+        <audio controls src={playingSong.songUrl} type="audio/mpeg" id='currentMusic' preload="metadata">pp</audio>
         <div className='backwardForward'>
            <FaStepBackward/>
         </div>

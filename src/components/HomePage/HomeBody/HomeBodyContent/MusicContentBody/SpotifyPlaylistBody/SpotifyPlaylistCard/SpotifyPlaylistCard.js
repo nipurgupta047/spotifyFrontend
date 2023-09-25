@@ -1,15 +1,43 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaPlay } from 'react-icons/fa'
+import axios from 'axios'
 import './styles.css'
 
-export default function SpotifyPlaylistCard() {
+export default function SpotifyPlaylistCard({songId, playingSong, setPlayingSong}) {
+  // console.log(songId);
+
+  // const {playingSong, setPlayingSong} = useContext(playingSongContext)
+
+  const [song, setSong] = useState({})
+  const [artistString, setArtistString] = useState('')
+  useEffect(()=>{
+    async function getSong(){
+      const tempSong = await axios.get(`http://localhost:8000/song/${songId}`)
+      setSong(tempSong.data)
+      // console.log(tempSong.data.artist);
+      setArtistString('')
+      for(let i =0; i<tempSong.data.artist.length; i++){
+        setArtistString(prev => prev+tempSong.data.artist[i].artistName)
+        if(i<tempSong.data.artist.length-1)
+        setArtistString(prev => prev+', ')
+      }
+    }
+    getSong()
+    
+  },[]);
+
+  function playSong(){
+    setPlayingSong(song)
+    console.log(playingSong);
+  }
+
   return (
     <div className='spotifyPlaylistCard'>
-      <img src='/images/1.jpg' className='spotifyPlaylistCardImage'></img>
-      <button className='playButtonOnMusicCard'><FaPlay/></button>  
-      <h4 className='spotifyPlaylistCardTitle'>Hannah Montana Mix</h4>
-      <p className='spotifyPlaylistCardArtist'>Hannah Montana, Taylor Swift</p>
+      <img src={song.imageUrl} className='spotifyPlaylistCardImage'></img>
+      <button className='playButtonOnMusicCard' onClick={playSong}><FaPlay/></button>  
+      <h4 className='spotifyPlaylistCardTitle'>{song.songName}</h4>
+      <p className='spotifyPlaylistCardArtist'>{artistString}</p>
     </div>
   )
 }

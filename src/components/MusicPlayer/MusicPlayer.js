@@ -3,11 +3,11 @@ import './styles.css'
 import SongCard from './SongCard/SongCard'
 import Controls from './Controls/Controls'
 import Volume from './Volume/Volume'
-export default function MusicPlayer() {
+export default function MusicPlayer({playingSong, setPlayingSong}) {
   return (
     <div id='musicPlayer'>
-      <SongCard/>
-      <Controls/>
+      <SongCard playingSong={playingSong} setPlayingSong={setPlayingSong}/>
+      <Controls playingSong={playingSong} setPlayingSong={setPlayingSong}/>
       <Volume/>
     </div>
   )
