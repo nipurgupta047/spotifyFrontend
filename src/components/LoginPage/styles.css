@@ -1,0 +1,115 @@
+
+.spotifyTitleDiv{
+    color: white;
+    height: 100px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+
+.spotifyTitle{
+    margin-top: 12px;
+    margin-left: 80px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#loginPage{
+    /* height: 100vh; */
+    background-image: linear-gradient(rgb(26,26,26), black);
+}
+
+#loginContainer{
+    width: 50%;
+    margin-left: auto;  
+    margin-right: auto;
+    margin-top: 30px;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 100px;
+}
+
+#innerLoginContainer{
+    width: 50%;
+    margin-left: auto;  
+    margin-right: auto;
+    margin-top: 50px;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+#loginEmail{
+    width:100%;
+    height: 36px;
+    border:1px solid black;
+    border-radius: 4px;
+}
+
+#loginEmail:hover{
+    border:1px solid white;
+}
+
+#loginPassword{
+    width:100%;
+    height: 36px;
+    border:1px solid black;
+    border-radius: 4px;
+}
+
+#loginPassword:hover{
+    border:1px solid white;
+}
+
+#loginButton{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width:102%;
+    height: 50px;
+    border:1px solid black;
+    border-radius: 100px;
+    background-color: rgb(30,215,96);
+    transition: transform ease-in-out 150ms;
+    font-weight: bold;
+    font-size: medium;
+}
+
+#loginButton:hover{
+    background-color: rgb(46, 211, 104);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#dontHaveAccount{
+    color: rgb(167,167,167);
+    margin-bottom: 50px;
+    align-self: center;
+}
+
+#signupForSpotify{
+    color:white;
+    text-decoration: underline;
+}
+
+#signupForSpotify:hover{
+    color: rgb(30,215,96);
+    cursor: pointer;
+}
+
+#loginToSpotify{
+    font-size: 46px;
+    font-weight: bold;
+    align-self: center;
+}
+
+hr{
+    width: 100%;
+    background-color: rgb(36,36,36); 
+    border: 0px;
+    height: 1px;
+}

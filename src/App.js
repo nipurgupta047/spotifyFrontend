@@ -2,7 +2,11 @@
 import './App.css';
 import HomePage from './components/HomePage/HomePage';
 import MusicPlayer from './components/MusicPlayer/MusicPlayer';
+import LoginPage from './components/LoginPage/LoginPage';
+import SignUpPage from './components/SignUpPage/SignUpPage';
 import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 
 function App() {
   const [playingSong, setPlayingSong] = useState({
@@ -23,8 +27,21 @@ function App() {
 
   return (
       <div className="App">
-        <HomePage playingSong={playingSong} setPlayingSong={setPlayingSong}/>
-        <MusicPlayer playingSong={playingSong} setPlayingSong={setPlayingSong}/>
+        <BrowserRouter>
+        <Routes>
+        <Route exact path="/" element={
+          <>
+            <HomePage playingSong={playingSong} setPlayingSong={setPlayingSong}/>
+            <MusicPlayer playingSong={playingSong} setPlayingSong={setPlayingSong}/>
+          </>
+        }/>
+        <Route exact path="/login" element={<LoginPage/>}/>
+        <Route exact path="/signup" element={<SignUpPage/>}/>
+        </Routes>
+      </BrowserRouter>
+
+        {/* <HomePage playingSong={playingSong} setPlayingSong={setPlayingSong}/>
+        <MusicPlayer playingSong={playingSong} setPlayingSong={setPlayingSong}/> */}
       </div>
   );
 }

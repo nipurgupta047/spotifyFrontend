@@ -1,0 +1,127 @@
+
+.spotifyTitleDiv{
+    color: white;
+    height: 100px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+
+.spotifyTitle{
+    margin-top: 12px;
+    margin-left: 80px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#signupPage{
+    /* height: 100vh; */
+    background-image: linear-gradient(white, rgb(255, 255, 255));
+}
+
+#signupContainer{
+    width: 50%;
+    margin-left: auto;  
+    margin-right: auto;
+    margin-top: 40px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 100px;
+}
+
+#innerSignupContainer{
+    width: 50%;
+    margin-left: auto;  
+    margin-right: auto;
+    margin-top: 0px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+}
+
+#signupEmail{
+    width:100%;
+    height: 44px;
+    border:2px solid rgb(117, 117, 117);
+    border-radius: 4px;
+}
+
+#signupEmail:hover{
+    border:2px solid black;
+}
+
+#signupProfileName{
+    width:100%;
+    height: 44px;
+    border:2px solid rgb(117, 117, 117);
+    border-radius: 4px;
+}
+
+#signupProfileName:hover{
+    border:2px solid black;
+}
+
+#signupPassword{
+    width:100%;
+    height: 44px;
+    border:2px solid rgb(117, 117, 117);
+    border-radius: 4px;
+}
+
+#signupPassword:hover{
+    border:2px solid black;
+}
+
+#signupButton{
+    margin-top: 50px;
+    margin-bottom: 0px;
+    width:50%;
+    height: 60px;
+    border: 0;
+    align-self: center;
+    border-radius: 100px;
+    background-color: rgb(30,215,96);
+    transition: transform ease-in-out 150ms;
+    font-weight: bold;
+    font-size: medium;
+}
+
+#signupButton:hover{
+    background-color: rgb(46, 211, 104);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#haveAccount{
+    color: rgb(0, 0, 0);
+    margin-bottom: 50px;
+    align-self: center;
+}
+
+#loginForSpotify{
+    color:rgb(18, 133, 58);
+    text-decoration: underline;
+}
+
+#loginForSpotify:hover{
+    color: rgb(30,215,96);
+    cursor: pointer;
+}
+
+#signupToSpotify{
+    font-size: 30px;
+    font-weight: bold;
+    align-self: center;
+}
+
+hr{
+    width: 100%;
+    background-color: rgb(36,36,36); 
+    border: 0px;
+    height: 1px;
+}
