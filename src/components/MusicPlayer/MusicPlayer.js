@@ -2,13 +2,13 @@ import React from 'react'
 import './styles.css'
 import SongCard from './SongCard/SongCard'
 import Controls from './Controls/Controls'
-import Volume from './Volume/Volume'
+import AddToPlaylist from './AddToPlaylist/AddToPlaylist'
 export default function MusicPlayer({playingSong, setPlayingSong}) {
   return (
     <div id='musicPlayer'>
       <SongCard playingSong={playingSong} setPlayingSong={setPlayingSong}/>
       <Controls playingSong={playingSong} setPlayingSong={setPlayingSong}/>
-      <Volume/>
+      <AddToPlaylist playingSong={playingSong} setPlayingSong={setPlayingSong}/>
     </div>
   )
 }

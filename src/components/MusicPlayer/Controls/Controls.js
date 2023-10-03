@@ -19,7 +19,6 @@ export default function Controls({playingSong, setPlayingSong}) {
         musicPlaying.onloadeddata = function(){
             setDur(musicPlaying.duration)
         }
-        console.log('oppp',document.getElementById('currentMusic'), 'durrr', dur);
         let y = ''
         if(Math.floor(dur-Math.floor(dur/60)*60)<10)
             y='0'

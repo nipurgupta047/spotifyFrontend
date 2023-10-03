@@ -1,9 +1,13 @@
-import React, { useEffect } from 'react'
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import React, { useEffect, useContext} from 'react'
+import { FaChevronLeft, FaChevronRight, FaUser } from 'react-icons/fa'
 import './styles.css'
+
+import usernameContext from '../../../../context'
 
 
 export default function Navbar() {
+
+  const [userUsername, setUserUsername] = useContext(usernameContext);
 
   useEffect(()=>{
       const ups = document.getElementById('homeBodyContent')
@@ -28,8 +32,15 @@ export default function Navbar() {
         </div>
 
         <div className='loginSignupDiv'>
-            <button className='signup loginSignup'>Sign Up</button>
-            <button className='login loginSignup'>Log in</button>
+          { 
+            userUsername===''?<>
+                                <button className='signup loginSignup'>Sign Up</button>
+                                <button className='login loginSignup'>Log in</button>
+                              </>:
+                              <>
+                                <button id='profileButton'><FaUser/></button>
+                              </>
+          } 
         </div>
     </div>
   )

@@ -67,6 +67,24 @@
     color:white;
 }
 
+#profileButton{
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    background-color: black;
+    height: 33px;
+    width:33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    border-radius: 100px;
+    border: none;
+}
+
+#profileButton:hover{
+    transform: scale(1.1);
+}
+
 .login{
     color: black;
     background-color: white;

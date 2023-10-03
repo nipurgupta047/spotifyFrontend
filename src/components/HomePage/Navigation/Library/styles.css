@@ -48,16 +48,26 @@
 
 .libraryBtn:hover{
     color:white;
-    background-color:rgb(28, 28, 28);;
+    background-color:rgb(28, 28, 28);
+    cursor: pointer;
 }
 
 #iconLibrary{
     margin-right: 18px;
 }
 
-.try{
+.libraryItemsInner{
     color:white;
-    margin-bottom:50px;
+    padding-top:10px;
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px rgb(43, 43, 43);
+    padding-bottom: 10px;
+}
+
+.libraryItemsInner:hover{
+   background-color: rgb(28, 28, 28);
+   cursor: pointer;
 }
 
 ::-webkit-scrollbar {
@@ -85,4 +95,129 @@
     height: 55vh;
     /* overflow: auto; */
     overflow-y: scroll;
+    padding-top: 30px;
+}
+
+#songLibraryImage{
+    height:50px;
+    width:50px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+#createPlaylistDiv{
+    margin-bottom:30px;
+    margin-top: 0px;
+    margin-left: 0px;
+    background-color: black;
+    border-radius: 5px;
+    padding: 20px;
+    width: 95%;
+    display: none;
+}
+
+#createPlaylistNameInput{
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+}
+
+#createPlaylistTitle{
+    color: white;
+    margin: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#createPlaylistButton{
+    background-color: rgb(30,215,96);
+    border-radius: 40px;
+    height: 35px;
+    width: 35%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    transition: transform ease-in-out 200ms;
+}
+
+#createPlaylistButton:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#cancelPlaylistButton{
+    background-color: rgb(255, 124, 124);
+    border-radius: 40px;
+    height: 35px;
+    width: 35%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    float: right;
+    margin-right: 30px;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    transition: transform ease-in-out 200ms;
+}
+
+#cancelPlaylistButton:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#showPlaylist{
+    color: white;
+    border: solid 1px white;
+    border-radius: 180px;
+    width: fit-content;
+    padding-left: 14px;
+    padding-right:14px;
+    padding-bottom: 6px;
+    padding-top: 2px;
+    font-size: 14px;
+}
+
+#showPlaylist:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+#showPlaylistCross{
+    color: black;
+    margin-left:3px;
+    display: none;
+}
+
+#playlistIcon{
+    font-size: 24px;
+    margin-right: 25px;
+    color: rgb(167,167,167);
+    /* margin-bottom: 10px; */
+}
+
+#playlistIcon:hover{
+    color: white;
+    cursor: pointer;
+}
+
+#playlistDeleteIcon{
+    font-size: 16px;
+    color: rgb(167,167,167);
+}
+
+#playlistDeleteIcon:hover{
+    color: white;
+    cursor: pointer;
+}
+
+#playlistDeleteIconDiv{
+    flex-grow: 1;
+    justify-content: flex-end;
+    display: flex;
+    margin-right: 20px;
 }

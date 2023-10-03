@@ -4,11 +4,17 @@ import HomePage from './components/HomePage/HomePage';
 import MusicPlayer from './components/MusicPlayer/MusicPlayer';
 import LoginPage from './components/LoginPage/LoginPage';
 import SignUpPage from './components/SignUpPage/SignUpPage';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import usernameContext from './context'
+import axios from 'axios';
 
 
 function App() {
+  const [userUsername, setUserUsername] = useState('')
+  const [getSongsOf, setGetSongsOf] = useState('')
+
   const [playingSong, setPlayingSong] = useState({
     _id: "4f5f9367-330f-43c1-b3e9-7e4039919302",
     songName: "Woman",
@@ -25,13 +31,24 @@ function App() {
     __v: 0
   })
 
+  useEffect(()=>{
+    async function fetchUser(){
+      const res = await axios.post('http://localhost:8000/isLoggedIn', {'token':localStorage.getItem('token')})
+      setUserUsername(res.data)
+    }
+    
+    fetchUser()
+    
+  },[]);
+
   return (
+      <usernameContext.Provider value = {[userUsername, setUserUsername]}>
       <div className="App">
         <BrowserRouter>
         <Routes>
-        <Route exact path="/" element={
+        <Route exact path="/*" element={
           <>
-            <HomePage playingSong={playingSong} setPlayingSong={setPlayingSong}/>
+            <HomePage playingSong={playingSong} setPlayingSong={setPlayingSong} getSongsOf={getSongsOf} setGetSongsOf={setGetSongsOf} />
             <MusicPlayer playingSong={playingSong} setPlayingSong={setPlayingSong}/>
           </>
         }/>
@@ -43,6 +60,7 @@ function App() {
         {/* <HomePage playingSong={playingSong} setPlayingSong={setPlayingSong}/>
         <MusicPlayer playingSong={playingSong} setPlayingSong={setPlayingSong}/> */}
       </div>
+      </usernameContext.Provider>
   );
 }
 

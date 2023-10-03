@@ -5,16 +5,15 @@ import './styles.css'
 export default function HomeAndSearch() {
   return (
     <div id='homeAndSearch'>
-
+      
       <div className='iconAndLabel iconAndLabelHome'>
         <div className='iconHome'>
             <FaHome />  
         </div>
         <div className='labelHome'>
-            Home
+            <a href='/'>Home</a>
         </div>
       </div>
-
       <div className='iconAndLabel iconAndLabelSearch'>
       <div className='iconSearch'>
             <FaSistrix />  

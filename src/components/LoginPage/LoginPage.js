@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './styles.css'
+import usernameContext from '../../context'
 
 
 export default function LoginPage() {
+
+    const [userUsername, setUserUsername] = useContext(usernameContext)
 
     const navigate = useNavigate();
 
@@ -25,9 +28,10 @@ export default function LoginPage() {
         const loginUrl = 'http://localhost:8000/login';
         const res = await axios.post(loginUrl, user)
 
-        if(res.data === 'You are logged in'){
-            // const token  = res.data.data
-            // localStorage.setItem('token', token)
+        if(res.data.status === 'logged'){
+            const token  = res.data.data
+            localStorage.setItem('token', token)
+            setUserUsername(user.username)
             alert('Successfully Logged In')
             navigate('/', { replace: true });
         }

@@ -1,0 +1,52 @@
+
+#addToPlaylist{
+  margin-right: 30px;
+}
+
+.dropbtn {
+    background-color: rgb(30,215,96);
+    color: black;
+    font-weight: bold;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 40px;
+  }
+  
+  .dropup {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropup-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    bottom: 50px;
+    z-index: 1;
+    border-radius: 5px;
+    /* margin-bottom: 5px; */
+  }
+  
+  .dropup-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropup-content a:hover {
+    background-color: #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .dropup:hover .dropup-content {
+    display: block;
+  }
+  
+  .dropup:hover .dropbtn {
+    background-color: rgb(0, 156, 55);
+    cursor: pointer;
+  }
