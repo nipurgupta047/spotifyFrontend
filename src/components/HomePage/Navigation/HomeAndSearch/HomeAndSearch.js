@@ -19,7 +19,7 @@ export default function HomeAndSearch() {
             <FaSistrix />  
         </div>
         <div className='labelSearch'>
-            Search
+        <a href='/search' className='linkSearch'>Search</a>
         </div>
       </div>
 

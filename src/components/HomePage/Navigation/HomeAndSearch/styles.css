@@ -34,7 +34,7 @@
 
 .iconAndLabelSearch{
     color:rgb(167,167,167);
-    transition: color linear 400ms;
+    transition: color linear 200ms;
 }
 
 .iconAndLabelSearch:hover{
@@ -44,4 +44,15 @@
 .labelSearch{
     font-size:16px;
     font-weight: bold;
+}
+
+.linkSearch{
+    text-decoration: none;
+    color: rgb(167,167,167);
+    transition: color linear 200ms;
+}
+
+.linkSearch:hover{
+    color: white;
+    text-decoration: none;
 }

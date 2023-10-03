@@ -96,6 +96,12 @@ export default function Library({getSongsOf,setGetSongsOf,playingSong,setPlaying
 
     }
 
+    async function changePlayingSong(_id) {
+        const fetchSong = await axios.get(`http://localhost:8000/song/${_id}`)
+        if(fetchSong.data)
+        setPlayingSong(fetchSong.data)
+    }
+
   return (
     <div id='library'>
       <div id='yourLibrary'>
@@ -106,7 +112,7 @@ export default function Library({getSongsOf,setGetSongsOf,playingSong,setPlaying
             <p className='yourLibraryWord'>Your Library</p>
         </div>
         <button className='libraryBtn' onClick={()=>{document.getElementById('createPlaylistDiv').style.display="block"}}><FaPlus /></button>
-        <button className='libraryBtn'><FaArrowRight /></button>
+        {/* <button className='libraryBtn'><FaArrowRight /></button> */}
       </div>
       <div id='showPlaylist' onClick={showPlaylistFunction}>Playlist <span id='showPlaylistCross'>x</span></div>
 
@@ -121,7 +127,7 @@ export default function Library({getSongsOf,setGetSongsOf,playingSong,setPlaying
         </div>
 
         {likedSongs.map(function(data) {
-          return <div className='libraryItemsInner' key={data} >
+          return <div className='libraryItemsInner' key={data} onClick={()=>changePlayingSong(data.songId)} >
                     <img src = {data.songImageUrl} id='songLibraryImage'/>
                     <div id='libraryItemsDetails'>
                         {data.songName}

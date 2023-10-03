@@ -6,6 +6,7 @@ import MusicContentBody from './MusicContentBody/MusicContentBody'
 import SpotifyPlaylistsSongs from './SpotifyPlaylistsSongs/SpotifyPlaylistsSongs';
 import UserPlaylistSongs from './UserPlaylistSongs/UserPlaylistSongs';
 import ArtistSongs from './ArtistSongs/ArtistSongs';
+import SearchSongAndArtist from './SearchSongAndArtist/SearchSongAndArtist';
 
 
 
@@ -25,6 +26,9 @@ export default function HomeBodyContent({playingSong,setPlayingSong,getSongsOf,s
         }/>
         <Route exact path="/artistSongs/:artistId" element={
           <ArtistSongs playingSong={playingSong} setPlayingSong={setPlayingSong}/>
+        }/>
+        <Route exact path="/search" element={
+          <SearchSongAndArtist playingSong={playingSong} setPlayingSong={setPlayingSong}/>
         }/>
 
         </Routes>
