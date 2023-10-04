@@ -5,11 +5,14 @@
     background-color: black;
     display: flex;
     align-items: center;
+    padding-left: 50px;
+    display: flex;
+    align-items: center;
 }
 
 .spotifyTitle{
-    margin-top: 12px;
-    margin-left: 80px;
+    margin-top: 24px;
+    margin-left: 20px;
     font-size: 28px;
     font-weight: bold;
 }

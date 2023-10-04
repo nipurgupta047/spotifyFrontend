@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './styles.css'
 import usernameContext from '../../context'
+import { FaSpotify } from 'react-icons/fa'
 
 
 export default function LoginPage() {
@@ -55,18 +56,18 @@ export default function LoginPage() {
   return (
     <div id='loginPage'>
         <div className='spotifyTitleDiv'>
-            <p className='spotifyTitle'>Spotify</p>
+        <FaSpotify style={{'fontSize':'48px'}}/><p className='spotifyTitle'>Spotify</p>
         </div>
         <div id='loginContainer'>
             <div id='innerLoginContainer'>
                 <p id='loginToSpotify'>Log in to Spotify</p>
                 <hr/>
-                <p className='label'>Email or username</p>
+                <p className='label'>Username</p>
                 <input type='text' id='loginEmail' />
                 <p className='label'>Password</p>
                 <input type='password' id='loginPassword' />
                 <button id='loginButton' onClick={submitLogin}>Log In</button>
-                <p id='dontHaveAccount'>Don't have an account? <span id='signupForSpotify'>Sign up for Spotify</span></p>
+                <p id='dontHaveAccount'>Don't have an account? <span id='signupForSpotify' onClick={()=>window.open('/signup','_self')}>Sign up for Spotify</span></p>
             </div>
         </div>
     </div>
