@@ -87,15 +87,15 @@ export default function Controls({playingSong, setPlayingSong}) {
     <div id='controls'>
       <div id='controlPanel'>
         <audio controls src={playingSong.songUrl} type="audio/mpeg" id='currentMusic' preload="metadata">pp</audio>
-        <div className='backwardForward'>
+        {/* <div className='backwardForward'>
            <FaStepBackward/>
-        </div>
+        </div> */}
         <div id='playPauseButton' onClick={playPause}>
             {!play? <FaPlayCircle/>:<FaPauseCircle/>}
         </div>
-        <div className='backwardForward'>
+        {/* <div className='backwardForward'>
             <FaStepForward/>
-        </div>
+        </div> */}
       </div>
       <div id='progressBar'>
         <span className='time currentTime'>{currentTime}</span>

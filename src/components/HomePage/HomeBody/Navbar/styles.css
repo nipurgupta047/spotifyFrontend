@@ -49,12 +49,10 @@
     }
 }
 
-.arrowButtons{
-    color: rgb(213, 213, 213);
-    font-size: 16px;
-    background-color: black;
-    height: 33px;
-    width:33px;
+.spotifyLogoDiv{
+    background-color: transparent;
+    height: 50px;
+    width:50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,8 +61,15 @@
     border: none;
 }
 
-.arrowButtons:hover{   
-    color:white;
+.spotifyLogo{
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    height: 50px;
+    width:50px;
+}
+
+.spotifyLogo:hover{   
+    transform: scale(1.05);
 }
 
 #profileButton{
@@ -79,6 +84,7 @@
     margin-right: 10px;
     border-radius: 100px;
     border: none;
+    align-self: flex-end;
 }
 
 #profileButton:hover{
@@ -121,5 +127,45 @@
 .login:hover{
     background-color:rgb(231, 230, 230);
     transform: scale(1.1);
+    cursor: pointer;
+}
+
+#logoutButton{
+    /* display: none; */
+    border-radius: 80px;
+    width: 80px;
+    height: 40px;
+    font-weight: bold;
+    transition: transform ease-in-out 200ms;
+    /* position: absolute; */
+    margin-top: 30px;
+    margin-left: 0px;
+}
+
+#profileDiv{
+    /* margin-right: 30px; */
+    /* width: 60px; */
+    display: flex;
+    /* flex-direction: column; */
+}
+
+#profileName{
+    display: none;
+    position: absolute;
+    margin-top: 70px;
+    background-color: rgb(110, 110, 110);
+    padding:5px 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 80px;
+}
+
+#profileButton:hover + #profileName {
+    display: block;
+}
+
+#logoutButton:hover{
+    display: block;
+    transform: scale(1.05);
     cursor: pointer;
 }

@@ -10,18 +10,15 @@ export default function SongCard({playingSong, setPlayingSong}) {
   const [userUsername, setUserUsername] = useContext(usernameContext)
 
 
-  // console.log(playingSong);
   const [artistString, setArtistString] = useState('')
   useEffect(()=>{
-    console.log(playingSong._id);
     setLike(false)
     async function fetchLikedSongs(){
       try {
         let fetchedSongs = await axios.post('http://localhost:8000/getLikedSongs',{'username':userUsername})
         fetchedSongs = fetchedSongs.data
-        console.log(fetchedSongs);
         for(let i=0; i<fetchedSongs.length; i++){
-          console.log(playingSong._id, '::', fetchedSongs[i].songId);
+          
           if(fetchedSongs[i].songId === playingSong._id){
             setLike(true)
             return
@@ -29,7 +26,6 @@ export default function SongCard({playingSong, setPlayingSong}) {
         }
       } catch (error) {
         setLike(false)
-        console.log(error);
       }
     }
     fetchLikedSongs()

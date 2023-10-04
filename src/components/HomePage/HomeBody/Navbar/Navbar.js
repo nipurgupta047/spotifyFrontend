@@ -1,5 +1,5 @@
 import React, { useEffect, useContext} from 'react'
-import { FaChevronLeft, FaChevronRight, FaUser } from 'react-icons/fa'
+import { FaChevronLeft, FaChevronRight, FaSpotify, FaUser } from 'react-icons/fa'
 import './styles.css'
 
 import usernameContext from '../../../../context'
@@ -24,22 +24,32 @@ export default function Navbar() {
     });
   },[])
 
+  function logoutFromApp() {
+    window.localStorage.setItem('token','')
+    window.open('/login','_self')
+  }
+
   return (
     <div id = 'navbar'>
         <div className='arrowButtonsDiv'>
-            <button className='backwardArrow arrowButtons'><FaChevronLeft/></button>
-            <button className='forwardArrow arrowButtons'><FaChevronRight/></button>
+          
+        <button className='spotifyLogoDiv'><FaSpotify className='spotifyLogo'/></button>
+            {/* <button className='backwardArrow arrowButtons'><FaChevronLeft/></button>
+            <button className='forwardArrow arrowButtons'><FaChevronRight/></button> */}
         </div>
 
         <div className='loginSignupDiv'>
           { 
             userUsername===''?<>
-                                <button className='signup loginSignup'>Sign Up</button>
-                                <button className='login loginSignup'>Log in</button>
+                                <button className='signup loginSignup' onClick={()=>window.open('/signup','_self')}>Sign Up</button>
+                                <button className='login loginSignup' onClick={()=>window.open('/login','_self')}>Log in</button>
                               </>:
-                              <>
+                              <div id='profileDiv'>
+                                {/* <button id='logoutButton'>Log Out</button> */}
                                 <button id='profileButton'><FaUser/></button>
-                              </>
+                                <p id='profileName'>{userUsername}</p>
+                                <button id='logoutButton' onClick={logoutFromApp}>Log Out</button>
+                              </div>
           } 
         </div>
     </div>

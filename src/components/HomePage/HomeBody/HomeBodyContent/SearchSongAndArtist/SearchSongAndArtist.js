@@ -15,19 +15,16 @@ export default function SearchSongAndArtist({playingSong,setPlayingSong}) {
   async function getSongs(){
     const tempSongs = await axios.post('http://localhost:8000/search/song',{'searchValue':document.getElementById('searchInput').value})
     setFoundSongs(tempSongs.data)
-    console.log('song',tempSongs);
   }
 
   async function getArtists(){
     const tempSongs = await axios.post('http://localhost:8000/search/artist',{'searchValue':document.getElementById('searchInput').value})
     setFoundArtist(tempSongs.data)
-    console.log('artis',tempSongs);
   }
 
   async function getSpotifyPlaylists(){
     const tempSongs = await axios.post('http://localhost:8000/search/spotifyPlaylist',{'searchValue':document.getElementById('searchInput').value})
     setFoundSpotifyPlaylist(tempSongs.data)
-    console.log('playlist',tempSongs);
   }
 
   function searchValueChanged(){

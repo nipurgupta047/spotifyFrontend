@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './styles.css'
@@ -8,8 +8,18 @@ import usernameContext from '../../context'
 export default function LoginPage() {
 
     const [userUsername, setUserUsername] = useContext(usernameContext)
-
     const navigate = useNavigate();
+
+    async function isLoggedIn() {
+        const res = await axios.post('http://localhost:8000/isLoggedIn', {'token':localStorage.getItem('token')})
+        if(res.data !== ''){
+            window.open('/','_self')
+        }
+    }
+
+    useEffect(()=>{
+        isLoggedIn()
+    },[])
 
     async function submitLogin(){
         const username = document.getElementById('loginEmail').value;

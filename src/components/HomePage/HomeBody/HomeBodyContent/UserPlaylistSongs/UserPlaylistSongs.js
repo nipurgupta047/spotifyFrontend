@@ -3,6 +3,7 @@ import './styles.css'
 import axios from 'axios'
 import usernameContext from '../../../../../context'
 import { useParams } from 'react-router-dom'
+import { FaTrash } from 'react-icons/fa'
 
 
 export default function UserPlaylistSongs({playingSong,setPlayingSong, getSongsOf, setGetSongsOf}) {
@@ -12,31 +13,43 @@ export default function UserPlaylistSongs({playingSong,setPlayingSong, getSongsO
   const [userUsername, setUserUsername] = useContext(usernameContext)
   const { userPlaylistId } = useParams()
 
+  async function getPlaylistSongs(){
+    const playlist = await axios.post(`http://localhost:8000/userPlaylist/${userPlaylistId}`, {'token':localStorage.getItem('token')})
+    setSpotifyPlaylist(playlist.data)
+    let tempSongs = []
+    for (let index = 0; index < playlist.data.playlistSongs.length; index++) {
+      const element = await getSongById(playlist.data.playlistSongs[index].songId)
+      tempSongs.push(element)
+    }
+    setSpotifyPlaylistSongs(tempSongs)
+  }
 
   useEffect(()=>{
-    async function getPlaylistSongs(){
-      console.log('userrr', userUsername);
-      const playlist = await axios.post(`http://localhost:8000/userPlaylist/${userPlaylistId}`, {'token':localStorage.getItem('token')})
-      console.log('ppp',playlist);
-      setSpotifyPlaylist(playlist.data)
-      let tempSongs = []
-      for (let index = 0; index < playlist.data.playlistSongs.length; index++) {
-        console.log(index);
-        const element = await getSongById(playlist.data.playlistSongs[index].songId)
-        tempSongs.push(element)
-      }
-      console.log('temp ',tempSongs);
-      setSpotifyPlaylistSongs(tempSongs)
-    }
     getPlaylistSongs()
   },[getSongsOf]);
 
   async function getSongById(_id){
-    console.log('eee',_id);
     const song = await axios.get(`http://localhost:8000/song/${_id}`)
-      console.log('qq',song.data.songName)
       return song.data
   }
+
+  async function deleteSongFromPlaylistFunction( songId){      
+    try {
+      
+      const res = await axios.post('http://localhost:8000/deleteSongFromPlaylist',{
+        'username':userUsername,
+        'playlistId':userPlaylistId,
+        'songId':songId
+      })
+      getPlaylistSongs()
+      alert(res.data)
+    } catch (error) {
+      alert('Could not delete playlist. Please try again.')
+    }
+    return
+
+  }
+
   let count = 0
 
   return (<div className={getSongsOf}>
@@ -59,7 +72,6 @@ export default function UserPlaylistSongs({playingSong,setPlayingSong, getSongsO
                 {/* <div className='headingOfSongsTableDuration'>Duration</div> */}
             </div>
             { spotifyPlaylistSongs.map(function(data) {
-                console.log('datata',data);
                 count++
                 return <div className='headingOfSongsTable songsOfSongsTable' key={data} onClick={()=>setPlayingSong(data)}>
                             <div className='headingOfSongsTableHash'>{count}</div>
@@ -70,7 +82,9 @@ export default function UserPlaylistSongs({playingSong,setPlayingSong, getSongsO
                             <div className='headingOfSongsTableArtist'>{data.artist.map(function(data2){
                                 return <a href={`../artistSongs/${data2.artistId}`}>{data2.artistName}</a>
                             })}</div>
-                            {/* <div className='headingOfSongsTableDuration'>3:00</div> */}
+                            <div className='headingOfSongsTableDuration'>
+                              <FaTrash id='playlistDeleteIcon' onClick={()=>{deleteSongFromPlaylistFunction(data._id)}}/>
+                            </div>
                         </div>
             })}
         </div>

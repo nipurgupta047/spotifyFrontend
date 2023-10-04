@@ -11,7 +11,7 @@ export default function SpotifyPlaylistBody({data , playingSong, setPlayingSong}
         <span className='SpotifyPlaylistBodyHeading'>{playlistName}</span>
         <a href={`spotifyPlaylist/${_id}`}><span className='SpotifyPlaylistBodyShowAll'>Show All</span></a>
       </div>
-
+      
       <div className='SpotifyPlaylistBodyCardsArray'>
         {
         songs.map(function(data) {

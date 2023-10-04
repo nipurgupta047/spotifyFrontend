@@ -28,11 +28,10 @@ export default function Library({getSongsOf,setGetSongsOf,playingSong,setPlaying
     if(userUsername !== ''){
         try{
             const temp = await axios.post('http://localhost:8000/getPlaylists',{'username':userUsername})
-            console.log('1', temp.data);
+            
             setPlaylists(temp.data)
         }
         catch{
-          console.log(2);
           setPlaylists([])
         }
     }
@@ -56,7 +55,6 @@ export default function Library({getSongsOf,setGetSongsOf,playingSong,setPlaying
         fetchPlaylists()
         alert(res.data)
       } catch (error) {
-        console.log(error);
         document.getElementById('createPlaylistDiv').style.display='none'
         alert('Could not create playlist. Please try again.')
       }
@@ -89,7 +87,6 @@ export default function Library({getSongsOf,setGetSongsOf,playingSong,setPlaying
         fetchPlaylists()
         alert(res.data)
       } catch (error) {
-        console.log(error);
         alert('Could not delete playlist. Please try again.')
       }
       return

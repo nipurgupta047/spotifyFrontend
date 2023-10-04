@@ -12,11 +12,10 @@ export default function AddToPlaylist({playingSong, setPlayingSong}) {
     if(userUsername !== ''){
         try{
             const temp = await axios.post('http://localhost:8000/getPlaylists',{'username':userUsername})
-            console.log('1', temp.data);
+            
             setPlaylists(temp.data)
         }
         catch{
-          console.log(2);
           setPlaylists([])
         }
     }
@@ -39,7 +38,6 @@ useEffect(()=>{
             
       alert(res.data)
     } catch (error) {
-      console.log(error);
       alert('Could not add to playlist. Please try again.')
     }
     return

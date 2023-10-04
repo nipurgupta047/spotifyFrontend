@@ -5,8 +5,7 @@ import axios from 'axios'
 import './styles.css'
 
 export default function SpotifyPlaylistCard({songId, playingSong, setPlayingSong}) {
-  // console.log(songId);
-
+ 
   // const {playingSong, setPlayingSong} = useContext(playingSongContext)
 
   const [song, setSong] = useState({})
@@ -15,7 +14,7 @@ export default function SpotifyPlaylistCard({songId, playingSong, setPlayingSong
     async function getSong(){
       const tempSong = await axios.get(`http://localhost:8000/song/${songId}`)
       setSong(tempSong.data)
-      // console.log(tempSong.data.artist);
+     
       setArtistString('')
       for(let i =0; i<tempSong.data.artist.length; i++){
         setArtistString(prev => prev+tempSong.data.artist[i].artistName)
@@ -29,7 +28,6 @@ export default function SpotifyPlaylistCard({songId, playingSong, setPlayingSong
 
   function playSong(){
     setPlayingSong(song)
-    console.log(playingSong);
   }
 
   return (
