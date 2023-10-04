@@ -11,7 +11,7 @@ export default function LoginPage() {
     const navigate = useNavigate();
 
     async function isLoggedIn() {
-        const res = await axios.post('http://localhost:8000/isLoggedIn', {'token':localStorage.getItem('token')})
+        const res = await axios.post('https://spotifybackend-jij3.onrender.com/isLoggedIn', {'token':localStorage.getItem('token')})
         if(res.data !== ''){
             window.open('/','_self')
         }
@@ -35,7 +35,7 @@ export default function LoginPage() {
             'password': password
         }
 
-        const loginUrl = 'http://localhost:8000/login';
+        const loginUrl = 'https://spotifybackend-jij3.onrender.com/login';
         const res = await axios.post(loginUrl, user)
 
         if(res.data.status === 'logged'){

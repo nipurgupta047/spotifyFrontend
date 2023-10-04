@@ -15,7 +15,7 @@ export default function Library({getSongsOf,setGetSongsOf,playingSong,setPlaying
     async function fetchLikedSongs(){
       if(userUsername !== ''){
           try{
-              const temp = await axios.post('http://localhost:8000/getLikedSongs',{'username':userUsername})
+              const temp = await axios.post('https://spotifybackend-jij3.onrender.com/getLikedSongs',{'username':userUsername})
               setLikedSongs(temp.data)
           }
           catch{
@@ -27,7 +27,7 @@ export default function Library({getSongsOf,setGetSongsOf,playingSong,setPlaying
   async function fetchPlaylists(){
     if(userUsername !== ''){
         try{
-            const temp = await axios.post('http://localhost:8000/getPlaylists',{'username':userUsername})
+            const temp = await axios.post('https://spotifybackend-jij3.onrender.com/getPlaylists',{'username':userUsername})
             
             setPlaylists(temp.data)
         }
@@ -46,7 +46,7 @@ export default function Library({getSongsOf,setGetSongsOf,playingSong,setPlaying
     async function createPlaylist(){
       try {
         
-        const res = await axios.post('http://localhost:8000/createPlaylist',{
+        const res = await axios.post('https://spotifybackend-jij3.onrender.com/createPlaylist',{
           'username':userUsername,
           'playlistName':document.getElementById('createPlaylistNameInput').value
         })
@@ -79,7 +79,7 @@ export default function Library({getSongsOf,setGetSongsOf,playingSong,setPlaying
     async function deletePlaylistFunction(_id){      
       try {
         
-        const res = await axios.post('http://localhost:8000/deletePlaylist',{
+        const res = await axios.post('https://spotifybackend-jij3.onrender.com/deletePlaylist',{
           'username':userUsername,
           '_id':_id
         })
@@ -94,7 +94,7 @@ export default function Library({getSongsOf,setGetSongsOf,playingSong,setPlaying
     }
 
     async function changePlayingSong(_id) {
-        const fetchSong = await axios.get(`http://localhost:8000/song/${_id}`)
+        const fetchSong = await axios.get(`https://spotifybackend-jij3.onrender.com/song/${_id}`)
         if(fetchSong.data)
         setPlayingSong(fetchSong.data)
     }

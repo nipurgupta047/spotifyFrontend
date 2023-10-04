@@ -13,12 +13,12 @@ export default function ArtistSongs({playingSong,setPlayingSong}) {
   useEffect(()=>{
     async function getPlaylistSongs(){
       
-      const playlist = await axios.get(`http://localhost:8000/artistSongs/${artistId}`)
+      const playlist = await axios.get(`https://spotifybackend-jij3.onrender.com/artistSongs/${artistId}`)
       setSpotifyPlaylistSongs(playlist.data)
     }
 
     async function getArtistDetails(){
-      const playlist = await axios.get(`http://localhost:8000/artist/${artistId}`)
+      const playlist = await axios.get(`https://spotifybackend-jij3.onrender.com/artist/${artistId}`)
       setArtist(playlist.data)
     }
 

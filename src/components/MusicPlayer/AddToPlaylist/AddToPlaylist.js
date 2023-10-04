@@ -11,7 +11,7 @@ export default function AddToPlaylist({playingSong, setPlayingSong}) {
   async function fetchPlaylists(){
     if(userUsername !== ''){
         try{
-            const temp = await axios.post('http://localhost:8000/getPlaylists',{'username':userUsername})
+            const temp = await axios.post('https://spotifybackend-jij3.onrender.com/getPlaylists',{'username':userUsername})
             
             setPlaylists(temp.data)
         }
@@ -28,7 +28,7 @@ useEffect(()=>{
   async function addToPlaylistFunction(_id){
     try {
         
-      const res = await axios.post('http://localhost:8000/addSongToPlaylist',{
+      const res = await axios.post('https://spotifybackend-jij3.onrender.com/addSongToPlaylist',{
         'username':userUsername,
         '_id':_id,
         'songId':playingSong._id,

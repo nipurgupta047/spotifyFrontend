@@ -12,7 +12,7 @@ export default function SpotifyPlaylistCard({songId, playingSong, setPlayingSong
   const [artistString, setArtistString] = useState('')
   useEffect(()=>{
     async function getSong(){
-      const tempSong = await axios.get(`http://localhost:8000/song/${songId}`)
+      const tempSong = await axios.get(`https://spotifybackend-jij3.onrender.com/song/${songId}`)
       setSong(tempSong.data)
      
       setArtistString('')

@@ -11,7 +11,7 @@ export default function SignUpPage() {
     const navigate = useNavigate()
 
     async function isLoggedIn() {
-        const res = await axios.post('http://localhost:8000/isLoggedIn', {'token':localStorage.getItem('token')})
+        const res = await axios.post('https://spotifybackend-jij3.onrender.com/isLoggedIn', {'token':localStorage.getItem('token')})
         if(res.data !== ''){
             window.open('/','_self')
         }
@@ -38,7 +38,7 @@ export default function SignUpPage() {
             'password' : password
         }
 
-        const addUserUrl = 'http://localhost:8000/signup'
+        const addUserUrl = 'https://spotifybackend-jij3.onrender.com/signup'
         const res = await axios.post(addUserUrl, userBody);
         alert(res.data);
         if(res.data === 'You are registered')

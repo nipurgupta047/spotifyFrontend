@@ -11,7 +11,7 @@ export default function SpotifyPlaylistsSongs({playingSong,setPlayingSong}) {
   const { playlistId } = useParams()
   useEffect(()=>{
     async function getPlaylistSongs(){
-      const playlist = await axios.get(`http://localhost:8000/spotifyPlaylistById/${playlistId}`)
+      const playlist = await axios.get(`https://spotifybackend-jij3.onrender.com/spotifyPlaylistById/${playlistId}`)
       setSpotifyPlaylist(playlist.data)
       let tempSongs = []
       for (let index = 0; index < playlist.data.songs.length; index++) {
@@ -24,7 +24,7 @@ export default function SpotifyPlaylistsSongs({playingSong,setPlayingSong}) {
   },[]);
 
   async function getSongById(_id){
-    const song = await axios.get(`http://localhost:8000/song/${_id}`)
+    const song = await axios.get(`https://spotifybackend-jij3.onrender.com/song/${_id}`)
       return song.data
   }
   let count = 0
