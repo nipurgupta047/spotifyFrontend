@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles.css'
 import SpotifyPlaylistCard from './SpotifyPlaylistCard/SpotifyPlaylistCard'
+import { NavLink } from 'react-router-dom'
 export default function SpotifyPlaylistBody({data , playingSong, setPlayingSong}) {
   const {playlistName, songs, _id} = data
   let count = 0
@@ -9,7 +10,7 @@ export default function SpotifyPlaylistBody({data , playingSong, setPlayingSong}
 
       <div className='SpotifyPlaylistBodyHeadingShowAll'>
         <span className='SpotifyPlaylistBodyHeading'>{playlistName}</span>
-        <a href={`spotifyPlaylist/${_id}`}><span className='SpotifyPlaylistBodyShowAll'>Show All</span></a>
+        <NavLink to={`spotifyPlaylist/${_id}`}><span className='SpotifyPlaylistBodyShowAll'>Show All</span></NavLink>
       </div>
       
       <div className='SpotifyPlaylistBodyCardsArray'>

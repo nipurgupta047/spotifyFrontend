@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import './styles.css'
 import Navbar from '../Navbar/Navbar'
 import MusicContentBody from './MusicContentBody/MusicContentBody'
@@ -22,7 +22,7 @@ export default function HomeBodyContent({playingSong,setPlayingSong,getSongsOf,s
           <SpotifyPlaylistsSongs playingSong={playingSong} setPlayingSong={setPlayingSong}/>
         }/>
         <Route exact path="/userPlaylist/:userPlaylistId" element={
-          <UserPlaylistSongs playingSong={playingSong} setPlayingSong={setPlayingSong} getSongsOf={getSongsOf} setGetSongsOf={setGetSongsOf}/>
+          <UserPlaylistSongs playingSong={playingSong} setPlayingSong={setPlayingSong} />
         }/>
         <Route exact path="/artistSongs/:artistId" element={
           <ArtistSongs playingSong={playingSong} setPlayingSong={setPlayingSong}/>

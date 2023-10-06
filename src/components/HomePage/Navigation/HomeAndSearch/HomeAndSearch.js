@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaHome, FaSistrix } from 'react-icons/fa'
 import './styles.css'
+import { NavLink } from 'react-router-dom'
 
 export default function HomeAndSearch() {
   return (
@@ -11,7 +12,11 @@ export default function HomeAndSearch() {
             <FaHome />  
         </div>
         <div className='labelHome'>
-            <a href='/'>Home</a>
+            <a href='/'>
+              <NavLink to='/'>
+                Home
+              </NavLink>
+            </a>
         </div>
       </div>
       <div className='iconAndLabel iconAndLabelSearch'>
@@ -19,7 +24,11 @@ export default function HomeAndSearch() {
             <FaSistrix />  
         </div>
         <div className='labelSearch'>
-        <a href='/search' className='linkSearch'>Search</a>
+        {/* <a href='/search' className='linkSearch'> */}
+          <NavLink to='/search'>
+            Search
+          </NavLink>
+        {/* </a> */}
         </div>
       </div>
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './styles.css'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { FaListUl } from 'react-icons/fa'
 
 
@@ -72,14 +72,14 @@ export default function SearchSongAndArtist({playingSong,setPlayingSong}) {
             </div>
             { foundSongs.map(function(data) {
                 count++
-                return <div className='headingOfSongsTable songsOfSongsTable' key={data} onClick={()=>setPlayingSong(data)}>
+                return <div className='headingOfSongsTable songsOfSongsTable' key={data}>
                             <div className='headingOfSongsTableHash'>{count}</div>
-                            <div className='headingOfSongsTableTitle'>
+                            <div className='headingOfSongsTableTitle' onClick={()=>setPlayingSong(data)}>
                                 <img src={data.imageUrl} className='songsTableTitleImage'></img>
                                 <h4 style={{'margin':'0px'}}>{data.songName}</h4>
                             </div>
                             <div className='headingOfSongsTableArtist'>{data.artist.map(function(data2){
-                                return <a href={`../../artistSongs/${data2.artistId}`}>{data2.artistName}</a>
+                                return <NavLink to={`../../artistSongs/${data2.artistId}`}>{data2.artistName}</NavLink>
                             })}</div>
                             {/* <div className='headingOfSongsTableDuration'>3:00</div> */}
                         </div>
@@ -87,7 +87,7 @@ export default function SearchSongAndArtist({playingSong,setPlayingSong}) {
 
             { foundArtist.map(function(data) {
                 count++
-                return <a href={`../artistSongs/${data._id}`}>
+                return <NavLink to={`../artistSongs/${data._id}`}>
                         <div className='headingOfSongsTable songsOfSongsTable' key={data}>
                             <div className='headingOfSongsTableHash'>{count}</div>
                             <div className='headingOfSongsTableTitle'>
@@ -96,12 +96,12 @@ export default function SearchSongAndArtist({playingSong,setPlayingSong}) {
                             </div>
                             {/* <div className='headingOfSongsTableDuration'>3:00</div> */}
                         </div>
-                        </a>
+                        </NavLink>
             })}
 
             { foundSpotifyPlaylist.map(function(data) {
                 count++
-                return <a href={`../spotifyPlaylist/${data._id}`}>
+                return <NavLink to={`../spotifyPlaylist/${data._id}`}>
                         <div className='headingOfSongsTable songsOfSongsTable' key={data}>
                             <div className='headingOfSongsTableHash'>{count}</div>
                             <div className='headingOfSongsTableTitle'>
@@ -110,7 +110,7 @@ export default function SearchSongAndArtist({playingSong,setPlayingSong}) {
                             </div>
                             {/* <div className='headingOfSongsTableDuration'>3:00</div> */}
                         </div>
-                      </a>
+                      </NavLink>
             })}
 
         </div>

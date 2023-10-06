@@ -6,9 +6,15 @@ import AddToPlaylist from './AddToPlaylist/AddToPlaylist'
 export default function MusicPlayer({playingSong, setPlayingSong}) {
   return (
     <div id='musicPlayer'>
-      <SongCard playingSong={playingSong} setPlayingSong={setPlayingSong}/>
-      <Controls playingSong={playingSong} setPlayingSong={setPlayingSong}/>
-      <AddToPlaylist playingSong={playingSong} setPlayingSong={setPlayingSong}/>
+      {playingSong._id==='a'?<div></div>
+      :
+      <>
+        <SongCard playingSong={playingSong} setPlayingSong={setPlayingSong}/>
+        <Controls playingSong={playingSong} setPlayingSong={setPlayingSong}/>
+        <AddToPlaylist playingSong={playingSong} setPlayingSong={setPlayingSong}/>
+      </>
+      }
+
     </div>
   )
 }

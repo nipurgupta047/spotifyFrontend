@@ -46,7 +46,7 @@ function App() {
       <div className="App">
         <BrowserRouter>
         <Routes>
-        <Route exact path="/*" element={
+        <Route path="/*" element={
           <>
             <HomePage playingSong={playingSong} setPlayingSong={setPlayingSong} getSongsOf={getSongsOf} setGetSongsOf={setGetSongsOf} />
             <MusicPlayer playingSong={playingSong} setPlayingSong={setPlayingSong}/>

@@ -44,6 +44,10 @@ export default function Library({getSongsOf,setGetSongsOf,playingSong,setPlaying
     }, [userUsername]);
 
     async function createPlaylist(){
+      if(userUsername === ''){
+        alert('You need to login to create Playlist')
+        return
+      }
       try {
         
         const res = await axios.post('https://spotifybackend-jij3.onrender.com/createPlaylist',{
@@ -148,7 +152,7 @@ export default function Library({getSongsOf,setGetSongsOf,playingSong,setPlaying
                                             to="/signup"></NavLink> */}
         {playlists.map(function(data) {
           return <div key={data} onClick={()=>setGetSongsOf(`data._id`)}>
-          <a href={`/userPlaylist/${data._id}`}>
+          <NavLink to={`/userPlaylist/${data._id}`}>
           <div className='libraryItemsInner'>
           {/* <img src = {data.songImageUrl} id='songLibraryImage'/> */}
           <FaListUl id='playlistIcon' />
@@ -159,7 +163,7 @@ export default function Library({getSongsOf,setGetSongsOf,playingSong,setPlaying
             <FaTrash id='playlistDeleteIcon' onClick={()=>{deletePlaylistFunction(data._id)}}/>
           </div>
         </div>
-        </a>
+        </NavLink>
         </div>
         })}
         
