@@ -39,6 +39,11 @@ export default function SongCard({playingSong, setPlayingSong}) {
 
 
  async function addRemoveFromLibrary(){
+
+  if(userUsername === ''){
+    alert('You need to login to add to library')
+    return
+  }
     
     if(!like){
       try {
