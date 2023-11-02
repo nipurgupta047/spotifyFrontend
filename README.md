@@ -5,7 +5,7 @@ Spotify Clone: https://spotify-i.netlify.app
 
 Backend Repository: https://github.com/nipurgupta047/spotifyBackend
 
-# Technologies Used
+## Technologies Used
 * HTML
 * CSS
 * JavaScript
@@ -18,7 +18,7 @@ Backend Repository: https://github.com/nipurgupta047/spotifyBackend
 * Bcrypt for Hashing user password
 
 
-# Features
+## Features
 * Authentication and authorization facility implemented.
 * Search functionality.
 * Library where liked songs are stored for quick access.
@@ -27,7 +27,7 @@ Backend Repository: https://github.com/nipurgupta047/spotifyBackend
 * Get songs by atists.
 * User Playlist CRUD operations.
 
-# What can user do on this app?
+## What can user do on this app?
 * User can listen to songs online on it.
 * Login and logout from their account.
 * Search songs, artists and playlists.
