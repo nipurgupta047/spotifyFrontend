@@ -10,6 +10,8 @@ Backend Repository: https://github.com/nipurgupta047/spotifyBackend
 * CSS
 * JavaScript
 * React.js
+* Node.js
+* Express.js
 * MongoDB as Database
 * Cloudinary to store Music and Images
 * Json Web Token for security and authentication
