@@ -33,7 +33,7 @@ function App() {
 
   useEffect(()=>{
     async function fetchUser(){
-      const res = await axios.post('https://spotifybackend-jij3.onrender.com/isLoggedIn', {'token':localStorage.getItem('token')})
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/isLoggedIn`, {'token':localStorage.getItem('token')})
       setUserUsername(res.data)
     }
     

@@ -15,7 +15,7 @@ export default function SongCard({playingSong, setPlayingSong}) {
     setLike(false)
     async function fetchLikedSongs(){
       try {
-        let fetchedSongs = await axios.post('https://spotifybackend-jij3.onrender.com/getLikedSongs',{'username':userUsername})
+        let fetchedSongs = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/getLikedSongs`,{'username':userUsername})
         fetchedSongs = fetchedSongs.data
         for(let i=0; i<fetchedSongs.length; i++){
           
@@ -47,7 +47,7 @@ export default function SongCard({playingSong, setPlayingSong}) {
     
     if(!like){
       try {
-        const res = await axios.post('https://spotifybackend-jij3.onrender.com/likeSong',{
+        const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/likeSong`,{
           'username':userUsername,
           'songId':playingSong._id,
           'songName': playingSong.songName,
@@ -61,7 +61,7 @@ export default function SongCard({playingSong, setPlayingSong}) {
     }
     else{
       try {
-        const res = await axios.post('https://spotifybackend-jij3.onrender.com/removeLikeSong',{
+        const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/removeLikeSong`,{
           'username':userUsername,
           'songId':playingSong._id
         })

@@ -13,17 +13,17 @@ export default function SearchSongAndArtist({playingSong,setPlayingSong}) {
   const { artistId } = useParams()
 
   async function getSongs(){
-    const tempSongs = await axios.post('https://spotifybackend-jij3.onrender.com/search/song',{'searchValue':document.getElementById('searchInput').value})
+    const tempSongs = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/search/song`,{'searchValue':document.getElementById('searchInput').value})
     setFoundSongs(tempSongs.data)
   }
 
   async function getArtists(){
-    const tempSongs = await axios.post('https://spotifybackend-jij3.onrender.com/search/artist',{'searchValue':document.getElementById('searchInput').value})
+    const tempSongs = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/search/artist`,{'searchValue':document.getElementById('searchInput').value})
     setFoundArtist(tempSongs.data)
   }
 
   async function getSpotifyPlaylists(){
-    const tempSongs = await axios.post('https://spotifybackend-jij3.onrender.com/search/spotifyPlaylist',{'searchValue':document.getElementById('searchInput').value})
+    const tempSongs = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/search/spotifyPlaylist`,{'searchValue':document.getElementById('searchInput').value})
     setFoundSpotifyPlaylist(tempSongs.data)
   }
 

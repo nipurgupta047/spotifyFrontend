@@ -14,7 +14,7 @@ export default function UserPlaylistSongs({playingSong,setPlayingSong}) {
   const { userPlaylistId } = useParams()
 
   async function getPlaylistSongs(){
-    const playlist = await axios.post(`https://spotifybackend-jij3.onrender.com/userPlaylist/${userPlaylistId}`, {'token':localStorage.getItem('token')})
+    const playlist = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/userPlaylist/${userPlaylistId}`, {'token':localStorage.getItem('token')})
     setSpotifyPlaylist(playlist.data)
     let tempSongs = []
     for (let index = 0; index < playlist.data.playlistSongs.length; index++) {
@@ -30,14 +30,14 @@ export default function UserPlaylistSongs({playingSong,setPlayingSong}) {
   },[userPlaylistId]);
 
   async function getSongById(_id){
-    const song = await axios.get(`https://spotifybackend-jij3.onrender.com/song/${_id}`)
+    const song = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/song/${_id}`)
       return song.data
   }
 
   async function deleteSongFromPlaylistFunction( songId){      
     try {
       
-      const res = await axios.post('https://spotifybackend-jij3.onrender.com/deleteSongFromPlaylist',{
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/deleteSongFromPlaylist`,{
         'username':userUsername,
         'playlistId':userPlaylistId,
         'songId':songId

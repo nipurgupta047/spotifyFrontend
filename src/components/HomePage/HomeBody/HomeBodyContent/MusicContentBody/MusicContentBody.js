@@ -8,7 +8,7 @@ export default function MusicContentBody({playingSong,setPlayingSong}) {
   const [spotifyPlaylist, setSpotifyPlaylist] = useState([])
   useEffect(()=>{
     async function getPlaylist(){
-      const playlist = await axios.get('https://spotifybackend-jij3.onrender.com/spotifyPlaylist')
+      const playlist = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/spotifyPlaylist`)
       setSpotifyPlaylist(playlist.data)
     }
     getPlaylist()
